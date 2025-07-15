@@ -7,11 +7,17 @@ The project is part of the **Advanced Deep Learning** course and follows two mai
 
 ## Project Structure
 ├── Text_Classification_Tweets_Sentiment.ipynb # Main notebook (Part A + Part B)
+
 ├── data/
-│ └── Corona_NLP_train.csv # Training data
-│ └── Corona_NLP_test.csv # Testing data
+
+      └── Corona_NLP_train.csv # Training data
+   
+      └── Corona_NLP_test.csv # Testing data
+
 ├── models/ # Folder for saving trained model checkpoints
+
 ├── outputs/ # Folder for storing prediction results (optional)
+
 ├── README.md # This file
 
 
