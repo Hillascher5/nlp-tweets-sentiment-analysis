@@ -1,48 +1,92 @@
-# Advanced Deep Learning Project – Tweets Sentiment Classification
-
-This repository contains the code and resources for a sentiment classification project based on the **"Coronavirus tweets NLP - Text Classification"** dataset.
-
-The project is part of the **Advanced Deep Learning** course and follows two main parts:
-
+# NLP Tweet Sentiment Classification: COVID-19
+This project fine-tunes transformer-based models (e.g., BERT, RoBERTa, DeBERTa) for tweet sentiment classification using a COVID-19 tweets dataset.
 
 ## Project Structure
-├── Text_Classification_Tweets_Sentiment.ipynb # Main notebook (Part A + Part B)
+- `notebooks/` - EDA, training HF, training manually, models compression, evaluation notebooks
+- `models/` - Fine-tuned models (see access instructions below)
+- `data/` - raw data and preprocessed datasets
 
-├── data/
+## Setup Instructions
+#### 1. Clone the repository
+git clone https://github.com/Hillascher5/nlp-tweets-sentiment-analysis.git
+cd nlp-tweets-sentiment-analysis
 
-      └── Corona_NLP_train.csv # Training data
+#### 2. Install dependencies
+pip install -r requirements.txt
+
+#### 3. if using Colab - Enable GPU for faster training
+
+## Notebooks Overview
+1) **EDA**
    
-      └── Corona_NLP_test.csv # Testing data
+Run: Text_Classification_Tweets_Sentiment_eda.ipynb
 
-├── models/ # Folder for saving trained model checkpoints
+2) **Training Approaches**
+   
+Option A — Manual Training
 
-├── outputs/ # Folder for storing prediction results (optional)
+Run: Full_fine_tune.ipynb
 
-├── README.md # This file
+Option B — HuggingFace Trainer
+
+Run: Train_HF_models.ipynb
+
+3) **Model Compression**
+   
+Applies multiple compression techniques (pruning, distillation, quantization).
+
+Run: Model_compression.ipynb
+
+4) **Final Evaluation**
+   
+Run: Evaluate_saved_models.ipynb
 
 
-## Dataset
+## **Pretrained Models (Google Drive)**
 
-- **Source:** [Kaggle – Coronavirus tweets NLP](https://www.kaggle.com/datasets/datatattle/covid-19-nlp-text-classification)
-- The data is available in the `data/` folder.
+Trained models are available here:
+
+Google Drive Folder:
+
+MyDrive/NLP_tweet_classification_covid19_project/models/
+
+link:
+
+https://drive.google.com/drive/folders/1v8jLPWNaS66_8lwHb36_GchlCp2toq7S?usp=drive_link
+
+You will find:
+
+HF_Trainer/ - models trained with HuggingFace Trainer
+
+HF_Trainer/Compressed_models/ - models after compression
+      
+Manual_finetune_min_preproc_5000_samples_opt/ - manually fine-tuned models
 
 
-## How to Run
+## How to Use the Pretrained Models and all paths in notebooks
 
-1. **Set up environment (recommended via Conda):**
-   ```bash
-   conda create -n adv_dl_env python=3.9
-   conda activate adv_dl_env
-   pip install -r requirements.txt
-2. **Launch Jupyter Notebok**
-3. **Open notebook:**
-     Text_Classification_Tweets_Sentiment.ipynb
-    
+**Option 1: Mount Google Drive**
 
-## Project Highlights
+model_path_hf = "/content/drive/MyDrive/NLP_tweet_classification_covid19_project/models/HF_Trainer/"
 
-- Performed **Exploratory Data Analysis (EDA)** on a real-world tweet sentiment dataset.
-- Applied **text preprocessing**: tokenization, stopword removal, lemmatization.
-- Fine-tuned and compared **pretrained Transformer models** (BERT, RoBERTa) using Hugging Face.
-- Tracked experiments with **Weights & Biases (W&B)** and optimized hyperparameters using **Optuna**.
-- Performed **model compression** using three techniques for efficiency and deployment readiness.
+model_path_manual = "/content/drive/MyDrive/NLP_tweet_classification_covid19_project/models/Manual_finetune_min_preproc_5000_samples_opt/"
+
+**Option 2: Download & Load Locally**
+
+- Download model folders from the Google Drive link above
+- Place them under your local models/ directory
+- Modify paths in code:
+  
+      model_path_hf = "models/HF_Trainer/"
+  
+      model_path_manual = "models/Manual_finetune_min_preproc_5000_samples_opt/"
+  
+Replace the commenting inside code, according to the option you choose.
+
+**Contact**
+
+Hilla Scher
+
+Email: hillas@mail.tau.ac.il
+
+GitHub: Hillascher5
