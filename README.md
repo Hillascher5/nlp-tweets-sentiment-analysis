@@ -39,6 +39,8 @@ Run: Model_compression.ipynb
 
 4) **Final Evaluation**
    
+**Note - test file to run: Corona_NLP_test_to_evaluate.csv** - already in code
+
 Run: Evaluate_saved_models.ipynb
 
 
